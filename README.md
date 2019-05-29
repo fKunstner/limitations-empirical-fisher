@@ -37,8 +37,8 @@ This repository contains code to reproduce the experiments in
   [`scikit-learn`](https://scikit-learn.org/stable/install.html)
   and [`tqdm`](https://github.com/tqdm/tqdm).
 
-* **Datasets:** the content of [datasets.zip](URL needs fixing) should be stored `~/data`,<br/>
-  (or `eftk/datasets.py` edited for another location)
+* **Datasets:** the content of [datasets.zip](https://github.com/fKunstner/limitations-empirical-fisher/releases/download/0.1.0/datasets.zip) should be stored in `~/data`,<br/>
+  (edit `eftk/datasets.py` for another location)
 
 ---
 
