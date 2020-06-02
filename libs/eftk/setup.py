@@ -7,5 +7,5 @@ setup(
     url='https://github.com/fkunstner/limitations-empirical-fisher',
     author='fkunstner',
     author_email='frederik.kunstner@gmail.com',
-    packages=['efplt'],
+    packages=['eftk'],
 )
