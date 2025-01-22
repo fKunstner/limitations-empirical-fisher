@@ -34,7 +34,7 @@ def load_problem():
     }
     DATASET_TO_PROBLEMS = {
         "BreastCancer": eftk.problem_defs.LogisticRegression,
-        "Boston": eftk.problem_defs.LinearRegression,
+        "Wine": eftk.problem_defs.LinearRegression,
         "a1a": eftk.problem_defs.LogisticRegression,
     }
     LRS = np.logspace(-20, 10, 241)

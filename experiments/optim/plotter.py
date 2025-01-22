@@ -51,15 +51,16 @@ def make_angle_single_figure_grid():
     return fig, fig.add_subplot(gs1[0]), fig.add_subplot(gs2[0])
 
 
-def make_angle_figure_grid():
-    fig = plt.figure(figsize=(12, 3))
-    gs1 = matplotlib.gridspec.GridSpec(ncols=3, nrows=1, figure=fig)
-    gs2 = matplotlib.gridspec.GridSpec(ncols=3, nrows=1, figure=fig)
+def make_angle_figure_grid(ncols):
+    fig = plt.figure(figsize=(ncols*4, 3))
+    
+    gs1 = matplotlib.gridspec.GridSpec(ncols=ncols, nrows=1, figure=fig)
+    gs2 = matplotlib.gridspec.GridSpec(ncols=ncols, nrows=1, figure=fig)
     gs1.update(left=0.08, right=0.98, bottom=0.475, top=0.88, hspace=0.15, wspace=0.15)
     gs2.update(left=0.08, right=0.98, bottom=0.18, top=0.425, hspace=0.15, wspace=0.15)
 
-    axes1 = [fig.add_subplot(gs1[0]), fig.add_subplot(gs1[1]), fig.add_subplot(gs1[2])]
-    axes2 = [fig.add_subplot(gs2[0]), fig.add_subplot(gs2[1]), fig.add_subplot(gs2[2])]
+    axes1 = [fig.add_subplot(gs1[i]) for i in range(ncols)]
+    axes2 = [fig.add_subplot(gs2[i]) for i in range(ncols)]
 
     return fig, axes1, axes2
 
@@ -208,10 +209,11 @@ def make_individual_angle_plots(dataset_to_problems, results, N_ITERS, startingP
 
 def make_angle_plot(dataset_to_problems, results, N_ITERS, startingPointFunc):
 
-    fig, axes1, axes2 = make_angle_figure_grid()
+    fig, axes1, axes2 = make_angle_figure_grid(len(dataset_to_problems))
 
     for i, dname in enumerate(dataset_to_problems):
         problemFunc = dataset_to_problems[dname]
+    
         make_angle_single_plot(axes1[i], axes2[i], dname, problemFunc, results, N_ITERS, startingPointFunc, writelabels=(i == 0))
 
         if dname is "a1a":
@@ -237,7 +239,7 @@ def make_angle_plot(dataset_to_problems, results, N_ITERS, startingPointFunc):
 
 def plot(optimizers, dataset_to_problems, lrs, dampings, N_ITERS, startingPointFunc, results):
     angle_fig = make_angle_plot(dataset_to_problems, results, N_ITERS, startingPointFunc)
-    startingpoint_fig = make_starting_point_plot("Boston", dataset_to_problems["Boston"], optimizers, results["Boston"])
+    startingpoint_fig = make_starting_point_plot("Wine", dataset_to_problems["Wine"], optimizers, results["Wine"])
     return angle_fig, startingpoint_fig
 
 
