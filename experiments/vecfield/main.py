@@ -41,22 +41,22 @@ def load_problem():
     return vectorFunctions(gammas, problem), startingPoints, X, y, problem
 
 
-def run(variant):
+def run():
     vectorFuncs, startingPoints, X, y, problem = load_problem()
     results = runner.run(vectorFuncs, startingPoints)
     save_results(results)
 
 
-def plot(variant):
+def plot():
     vectorFuncs, startingPoints, X, y, problem = load_problem()
     results = load_results()
     fig = plotter.plot(X, y, problem, vectorFuncs, startingPoints, results)
     return [fig]
 
 
-def run_appendix(variant):
+def run_appendix():
     print("This experiment has no appendix.")
 
 
-def plot_appendix(variant):
+def plot_appendix():
     print("This experiment has no appendix.")
