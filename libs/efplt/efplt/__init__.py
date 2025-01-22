@@ -7,7 +7,7 @@ import scipy as sp
 font = {'family': 'serif', 'size': 18}
 matplotlib.rc('font', **font)
 matplotlib.rcParams['text.usetex'] = True
-matplotlib.rcParams['text.latex.preamble'] = [r"\usepackage{amsmath}"]
+matplotlib.rcParams['text.latex.preamble'] = r"\usepackage{amsmath}"
 
 
 def rgb_to_u(xs):
