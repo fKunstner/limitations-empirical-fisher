@@ -88,7 +88,7 @@ typical use: $ python main.py -expName -run -plot -show
 
 * **`-vecfield` experiment (Fig. 1):** `-run` needed, but short (~10min)
   ```
-  python main.py -vecfield -plot -show
+  python main.py -vecfield -run -plot -show
   ```
 * **`-misspec` experiment (Fig. 2):** `-run` not needed
   ```

@@ -42,7 +42,11 @@ def parse():
 
 def savefigs(figs, expname):
     for i, fig in enumerate(figs):
-        efplt.save(fig, expname + "-" + str(i) + ".pdf")
+        if isinstance(fig, list):
+            for j, f in enumerate(fig):
+                efplt.save(f, expname + "-" + str(i) + "-" + str(j) + ".pdf")
+        else:
+            efplt.save(fig, expname + "-" + str(i) + ".pdf")
 
 
 if __name__ == "__main__":
